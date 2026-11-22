@@ -1,275 +1,699 @@
 # DYNAFIN – OPPORTUNITY IQ
 
-> **"Don't just survive growth. Understand it. Prepare for it. Pursue it."**  
-> *Core Promise: "Know the financial risk before you accept the opportunity."*  
-> **Event:** ARTHATON 2026
+> **Don't just survive growth. Understand it. Prepare for it. Pursue it.**
+
+**Know the financial risk before you accept the opportunity.**
+
+**Event:** ARTHATON 2026
+
+[![Live Demo](https://img.shields.io/badge/Live-Demo-879B78?style=for-the-badge)](https://dynafin-opportunity-iq.vercel.app/)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-14221E?style=for-the-badge&logo=github)](https://github.com/sanaakbarali/dynafin-opportunity-iq)
+[![Framework](https://img.shields.io/badge/Next.js-14-14221E?style=for-the-badge&logo=next.js)](https://nextjs.org/)
+[![Database](https://img.shields.io/badge/Database-Supabase-879B78?style=for-the-badge&logo=supabase)](https://supabase.com/)
 
 ---
 
-## 1. Executive Summary & Problem Statement
+## 1. Overview
 
-Indian Micro, Small and Medium Enterprises (MSMEs) form the backbone of industrial manufacturing, contributing over 30% to India's GDP. Yet, thousands of technically competent MSMEs succumb annually to **Opportunity Blindness**.
+Indian Micro, Small and Medium Enterprises (MSMEs) frequently face a financial challenge that is not immediately visible: accepting a profitable purchase order does not necessarily mean having enough cash to fulfil it.
 
-Small manufacturers receive promising, high-value purchase orders (POs) from corporate buyers, PSUs, and tier-1 enterprises. However, critical operational and financial data remains severely fragmented across spreadsheets, paper POs, supplier proformas, delivery challans, accounting software, and personal bank calculations. 
+A manufacturer may receive a purchase order worth ₹15,00,000 and expect a healthy contribution margin. However, raw material suppliers may demand advance payments, employees must be paid throughout production, electricity and operating expenses continue to accumulate, and the customer may settle the invoice only after 45–90 days.
 
-An MSME owner might know the headline price of a ₹15 Lakh order, but remain dangerously blind to:
-- The **actual upfront working capital** demanded by raw material suppliers before spindle or CNC machines can run.
-- The **timing mismatch** between daily shop-floor outflows (wages, diesel, discom power tariffs) and customer settlement (often 45–90 days).
-- The **shop floor capacity overload** that triggers contractual delivery delays and liquidated damage penalties.
-- What happens if the buyer takes an additional **30, 60, or 90 days** to clear the invoice.
+The result is a mismatch between when money goes out and when it comes in.
 
-> **The Core Challenge:** A business can receive an unmistakably profitable order and still experience an acute cash-flow insolvency crisis because expenses occur in days while customer payments arrive in months.
+This is the problem of **Opportunity Blindness**.
 
-**DYNAFIN** is an AI-powered, pre-order financial decision intelligence platform built specifically for Indian MSMEs. It evaluates new business opportunities against existing cash balances, machine capacity, payment schedules, and debt commitments **before** money, materials, and time are committed.
+Business owners often evaluate opportunities using the order value and expected profit without having a consolidated understanding of:
 
-DYNAFIN is **not** a generic accounting app, invoice generator, GST portal, or loan broker. Its sole mission is **pre-order financial decision intelligence**.
+- Upfront working capital requirements.
+- Supplier advances and production expenses.
+- Customer payment timelines and potential delays.
+- Existing debt and monthly EMI commitments.
+- Available production capacity.
+- The financial consequences of unexpected cost increases.
 
----
+### Our Solution
 
-## 2. Key Features & Decision Modules
+**DYNAFIN – Opportunity IQ** is an AI-powered financial decision intelligence platform designed for Indian MSMEs.
 
-| Module | Route | Functionality |
-| :--- | :--- | :--- |
-| **Landing Experience** | `/` | Cinematic industrial editorial visual identity, kinetic cash-flow timeline, live interactive delay stress-tester. |
-| **Executive Workspace** | `/workspace` | Operational & financial snapshot, plant capacity headroom, multi-PO pipeline, and switchable illustrative MSME profiles. |
-| **Opportunity Studio** | `/opportunities` | The core decision engine. Dual-mode ingestion (PO PDF/image OCR extraction + manual entry), direct cost waterfall, and contribution margin analysis. |
-| **Cash Flow Intelligence** | `/cash-flow` | Interactive day-by-day cash trajectory (30/60/90 days), modeling supplier advances, wage tranches, bank EMIs, and pinpointing peak cash deficits. |
-| **Buyer Intelligence** | `/buyers` | Empirical payment discipline tracking based strictly on verified historical invoices, calculating average delay drift and on-time consistency. |
-| **Risk Assessment** | `/risk` | 5-pillar vulnerability audit: Customer Concentration, Vendor Sourcing, Cash-Flow Deficits, Shop Floor Capacity, and Debt Service Burden. |
-| **Scenario Laboratory** | `/scenarios` | Real-time what-if simulation with sliders for 0–90d buyer delays, 0–25% material inflation, advance variances, and side-by-side delta comparisons. |
-| **Funding Navigator** | `/funding` | Verified Indian MSME financing discovery: CGTMSE, MUDRA Tarun, TReDS invoice discounting, PO Financing, and SIDBI SMILE schemes. |
-| **Loan Readiness** | `/loan-readiness` | Comprehensive bank dossier checklist (Udyam, GST, ITR, balance sheets, POs) with completeness scoring and file upload interface. |
-| **Loan Comparison** | `/loan-comparison` | Side-by-side financing calculator with standard reducing-balance EMI formulas, total interest outgo, processing fees, and effective APR. |
-| **AI Financial Assistant** | `/assistant` | Context-aware decision copilot grounded in the MSME's stored financials and active purchase orders, answering specific risk queries. |
-| **Report Centre** | `/reports` | Executive downloadable/printable institutional report with full direct-cost tables, 5-pillar scorecards, and credit structuring advice. |
-| **Document Room** | `/documents` | Centralized repository for POs, tax returns, bank statements, and quotations, ready for Supabase Storage RLS integration. |
-| **Business Settings** | `/settings` | Enterprise profile management, Udyam/PAN/GSTIN identifiers, and database connectivity parameters. |
+It evaluates potential business opportunities against a business's financial position, production capacity, payment schedules and existing obligations before the owner commits resources to an order.
+
+DYNAFIN helps business owners understand not only whether an order appears profitable, but also whether the business can financially sustain its execution.
+
+**DYNAFIN is a decision-support platform, not an accounting application, loan approval system or financial institution.**
 
 ---
 
-## 3. Visual Identity: "Industrial Editorial Intelligence"
+## 2. The Problem We Address
 
-DYNAFIN rejects the generic SaaS template paradigm (no left-hand sidebar clutter, no neon gradients, no random cards, and no glassmorphism).
+Consider a textile manufacturer receiving a purchase order worth ₹15,00,000.
 
-The design language fuses:
-- **Premium Financial Publication** (asymmetric layouts, intentional whitespace, wide financial timelines).
-- **Industrial Precision** (documentary clarity, shop-floor mechanics, technical data visualization).
-- **Harmonious Palette**:
-  - Primary Background (Warm Ivory): `#F3F0E7`
-  - Primary Dark (Deep Charcoal Green): `#14221E`
-  - Secondary Green (Sage): `#879B78`
-  - Accent (Muted Rust): `#B66B4D`
-  - Highlight (Warm Amber): `#D5A34E`
-- **Typography**:
-  - Headlines: *Instrument Serif* (Expressive, classical editorial weight).
-  - Body & UI: *Inter* (Crisp, modern sans-serif).
-  - Financial Data & Technical Labels: *IBM Plex Mono* (Tabular figures, timestamps, currency values).
+| Financial component | Amount |
+|---|---:|
+| Purchase order value | ₹15,00,000 |
+| Direct production costs | ₹9,00,000 |
+| Gross contribution | ₹6,00,000 |
+| Contribution margin | 40% |
+
+At first glance, the order appears attractive.
+
+However:
+
+- Suppliers require advance payments before production.
+- Production wages and operating expenses must be paid on time.
+- The customer offers payment terms of 45 days.
+- Existing loan EMIs continue regardless of order execution.
+- A delayed customer payment can increase the cash deficit.
+
+The business could therefore face a liquidity crisis despite having a profitable order.
+
+DYNAFIN addresses this gap by analysing profitability, liquidity, operational capacity and payment risks together.
 
 ---
 
-## 4. Technical Architecture & Stack
+## 3. Key Features and Modules
 
-```
-                   ┌──────────────────────────────────────────────┐
-                   │             DYNAFIN FRONTEND                 │
-                   │    Next.js 14 (App Router) + React 18        │
-                   │   Tailwind CSS + Framer Motion + Lucide      │
-                   └──────────────────────┬───────────────────────┘
-                                          │
-                   ┌──────────────────────┴───────────────────────┐
-                   │           DECISION ENGINE & STATE            │
-                   │    WorkspaceContext + Financial Calculations │
-                   │    Zod Schemas + Indian Currency Formatter   │
-                   └──────────────────────┬───────────────────────┘
-                                          │
-       ┌──────────────────────────────────┴──────────────────────────────────┐
-       │                                                                     │
-┌──────▼───────────────────────────┐                       ┌─────────────────▼──────────────┐
-│       SUPABASE POSTGRESQL        │                       │       AI SERVICE LAYER         │
-│  18 Entities, UUID Keys, RLS     │                       │ Provider-Independent Interface │
-│  Document Storage (Private RLS)  │                       │ Contextual Deterministic Guard │
-└──────────────────────────────────┘                       └────────────────────────────────┘
-```
+| Module | Route | Purpose |
+|---|---|---|
+| Landing Experience | `/` | Introduces DYNAFIN and its opportunity-risk assessment approach. |
+| Executive Workspace | `/workspace` | Presents business financial indicators, operational information and opportunity summaries. |
+| Opportunity Studio | `/opportunities` | Evaluates purchase orders, direct costs and contribution margins. |
+| New Opportunity | `/opportunities/new` | Provides the purchase-order intake interface. |
+| Cash Flow Intelligence | `/cash-flow` | Examines cash inflows, outflows and potential liquidity pressure. |
+| Buyer Intelligence | `/buyers` | Organises buyer-related information and payment behaviour data. |
+| Risk Assessment | `/risk` | Examines five major areas of business vulnerability. |
+| Scenario Laboratory | `/scenarios` | Supports what-if analysis for changes in payment delays, costs and advances. |
+| Funding Navigator | `/funding` | Presents Indian MSME financing options and funding information. |
+| Loan Readiness | `/loan-readiness` | Organises documents and information required for financing applications. |
+| Loan Comparison | `/loan-comparison` | Compares financing options using EMI and interest calculations. |
+| AI Financial Assistant | `/assistant` | Answers financial questions using available business context and deterministic fallback reasoning. |
+| Report Centre | `/reports` | Provides an executive reporting interface. |
+| Document Room | `/documents` | Provides a central interface for business document management. |
+| Business Settings | `/settings` | Provides business profile and application settings. |
 
-- **Frontend Framework:** Next.js 14 with App Router, TypeScript, React 18.
-- **Styling & Motion:** Tailwind CSS, PostCSS, Autoprefixer, Framer Motion.
-- **Visualizations:** Recharts, custom SVG timeline nodes, print-friendly stylesheets.
-- **Validation:** Zod schemas for PO ingestion, financial inputs, and auth payloads.
-- **Database Architecture:** Supabase-ready PostgreSQL schema with 18 entities, strict foreign key constraints, indexes, and Row Level Security (RLS) policies.
-- **Currency System:** Strictly formatted in Indian Rupee format (`₹15,00,000`, Lakhs, Crores). Never formatted as dollars.
+### Five-Pillar Risk Assessment
+
+DYNAFIN examines five important dimensions:
+
+1. **Customer Concentration Risk:** Dependence on a limited number of buyers.
+2. **Vendor Dependency Risk:** Dependence on critical suppliers and sourcing arrangements.
+3. **Cash Flow Risk:** Ability to meet expenses before customer payments arrive.
+4. **Production Capacity Risk:** Available manufacturing capacity and potential delivery constraints.
+5. **Debt Service Risk:** Existing EMI obligations and their effect on available liquidity.
+
+The purpose is to help business owners identify vulnerabilities before accepting additional commitments.
+
+---
+
+## 4. How DYNAFIN Works
+
+The platform follows a pre-order financial assessment workflow.
+
+1. **Business Information:** Establish the business profile, available cash, existing obligations and operational information.
+2. **Purchase Order Assessment:** Enter the order value, customer advance, payment terms and expected costs.
+3. **Financial Evaluation:** Calculate direct costs, gross contribution and contribution margin.
+4. **Liquidity Assessment:** Estimate working capital requirements and identify potential cash shortages.
+5. **Risk Evaluation:** Examine customer, supplier, capacity, cash-flow and debt-related vulnerabilities.
+6. **Scenario Analysis:** Explore the impact of payment delays and cost variations.
+7. **Decision Support:** Present financial insights and possible actions for the business owner to evaluate.
+
+DYNAFIN does not automatically accept or reject purchase orders. The final commercial decision remains with the business owner.
 
 ---
 
 ## 5. Financial Calculation Methodology
 
-All calculations in DYNAFIN are **pure, testable, deterministic algorithms**; AI is never permitted to fabricate financial totals:
+DYNAFIN uses deterministic financial calculations for its core numerical assessments. Generative AI is not intended to replace or fabricate financial calculations.
 
-1. **Total Direct Cost ($C_{direct}$):**
-   $$C_{direct} = C_{materials} + C_{labour} + C_{production} + C_{packaging} + C_{logistics} + C_{utilities} + C_{other}$$
+### 5.1 Total Direct Cost
 
-2. **Gross Contribution ($GC$) and Margin ($CM\%$):**
-   $$GC = V_{order} - C_{direct}$$
-   $$CM\% = \left(\frac{GC}{V_{order}}\right) \times 100$$
-   *(DYNAFIN strictly distinguishes Gross Contribution from Net Operating Profit to avoid false confidence).*
+The total direct cost is the sum of expenses directly associated with fulfilling an order.
 
-3. **Working Capital Gap ($WC_{gap}$):**
-   $$WC_{gap} = \max\left(0, C_{direct} - Advance_{received} - (Cash_{available} \times 0.60)\right)$$
+\[
+C_{direct} =
+C_{materials}+
+C_{labour}+
+C_{production}+
+C_{packaging}+
+C_{logistics}+
+C_{utilities}+
+C_{other}
+\]
 
-4. **Reducing Balance Equated Monthly Installment ($EMI$):**
-   $$EMI = \frac{P \times r \times (1 + r)^n}{(1 + r)^n - 1}$$
-   Where $P$ is principal, $r$ is monthly interest rate ($\frac{\text{Annual Rate}}{12 \times 100}$), and $n$ is tenure in months.
+### 5.2 Gross Contribution
 
-5. **Counterparty Payment Delay Drift ($\Delta_{delay}$):**
-   $$\Delta_{delay} = \frac{1}{N}\sum_{i=1}^{N} \max(0, Date_{payment, i} - Date_{due, i})$$
-   Confidence score requires a minimum threshold of historical invoices ($N \ge 8$ for High, $N \ge 3$ for Moderate, otherwise Insufficient Data).
+\[
+GC=V_{order}-C_{direct}
+\]
+
+Where:
+
+- \(GC\) = Gross contribution.
+- \(V_{order}\) = Total purchase order value.
+- \(C_{direct}\) = Total direct cost.
+
+### 5.3 Contribution Margin
+
+\[
+CM\%=\frac{GC}{V_{order}}\times100
+\]
+
+Gross contribution is not the same as net profit. It does not automatically account for every operating expense, financing cost, tax or other business obligation.
+
+### 5.4 Working Capital Gap
+
+The project's working capital estimate uses the following model:
+
+\[
+WC_{gap}=
+\max(0,C_{direct}-Advance-(Cash\times0.60))
+\]
+
+Where:
+
+- \(C_{direct}\) = Total direct costs.
+- \(Advance\) = Customer advance received.
+- \(Cash\) = Available liquid cash.
+
+The 60% cash factor represents a conservative availability assumption in this model.
+
+**Important:** This working capital estimate is distinct from the peak cash deficit calculated across a time-based cash-flow projection. They should not be treated as interchangeable figures.
+
+### 5.5 Equated Monthly Instalment (EMI)
+
+For reducing-balance loans:
+
+\[
+EMI=\frac{P\times r\times(1+r)^n}{(1+r)^n-1}
+\]
+
+Where:
+
+- \(P\) = Principal amount.
+- \(r\) = Monthly interest rate.
+- \(n\) = Loan tenure in months.
+
+\[
+r=\frac{\text{Annual Interest Rate}}{12\times100}
+\]
+
+### 5.6 Buyer Payment Delay
+
+Average payment delay can be estimated from historical invoice records:
+
+\[
+\Delta_{delay}=
+\frac{1}{N}\sum_{i=1}^{N}
+\max(0,Date_{payment,i}-Date_{due,i})
+\]
+
+The availability of sufficient historical invoice data determines the confidence of payment-behaviour assessments.
+
+- High confidence: At least 8 historical invoices.
+- Moderate confidence: 3–7 historical invoices.
+- Insufficient data: Fewer than 3 historical invoices.
+
+These thresholds are intended for the platform's assessment model and do not represent an external credit rating.
 
 ---
 
-## 6. Realistic Indian MSME Demo Profiles
+## 6. Illustrative Indian MSME Profiles
 
-DYNAFIN includes three internally consistent, realistic Indian MSME profiles:
+DYNAFIN includes three illustrative business profiles representing different manufacturing and processing industries.
 
-1. **Sri Textiles (Madurai, Tamil Nadu)**
-   - Industry: Textile weaving & dyeing (grey fabrics & combed cotton shirting).
-   - Staff: 12 employees | Vintage: 8 years | Available Liquid Cash: ₹2,80,000.
-   - Active PO: ₹15,00,000 from Chennai Garment Exporters (15% advance, 45d terms).
-   - Direct Costs: ₹9,00,000 | Gross Contribution: ₹6,00,000 (40.0% margin).
-   - Peak Deficit: -₹2,85,000 at Day 42 before customer settlement.
+### 1. Sri Textiles – Madurai, Tamil Nadu
 
-2. **Kovai Precision Engineering (Coimbatore, Tamil Nadu)**
-   - Industry: Light engineering & CNC machined automotive flanges.
-   - Staff: 18 employees | Vintage: 11 years | Available Liquid Cash: ₹4,20,000.
-   - Active PO: ₹28,50,000 from Sundaram Auto Ancillaries (10% advance, 60d terms).
-   - Direct Costs: ₹22,00,000 | Gross Contribution: ₹6,50,000 (22.8% margin).
+| Parameter | Value |
+|---|---:|
+| Industry | Textile weaving and dyeing |
+| Employees | 12 |
+| Business vintage | 8 years |
+| Available liquid cash | ₹2,80,000 |
+| Purchase order value | ₹15,00,000 |
+| Customer advance | 15% |
+| Payment terms | 45 days |
+| Direct costs | ₹9,00,000 |
+| Gross contribution | ₹6,00,000 |
+| Contribution margin | 40% |
+| Illustrative peak cash deficit | ₹2,85,000 |
 
-3. **Trichy Natural Food Processing (Tiruchirappalli, Tamil Nadu)**
-   - Industry: Agro & Cold-pressed edible oils.
-   - Staff: 9 employees | Vintage: 5 years | Available Liquid Cash: ₹1,90,000.
-   - Active PO: ₹8,40,000 from Southern Spice & Grocery Marts (20% advance, 30d terms).
-   - Direct Costs: ₹7,10,000 | Gross Contribution: ₹1,30,000 (15.5% margin).
+### 2. Kovai Precision Engineering – Coimbatore, Tamil Nadu
+
+| Parameter | Value |
+|---|---:|
+| Industry | CNC machining and light engineering |
+| Employees | 18 |
+| Business vintage | 11 years |
+| Available liquid cash | ₹4,20,000 |
+| Purchase order value | ₹28,50,000 |
+| Customer advance | 10% |
+| Payment terms | 60 days |
+| Direct costs | ₹22,00,000 |
+| Gross contribution | ₹6,50,000 |
+| Contribution margin | 22.8% |
+
+### 3. Trichy Natural Food Processing – Tiruchirappalli, Tamil Nadu
+
+| Parameter | Value |
+|---|---:|
+| Industry | Agro-processing and cold-pressed edible oils |
+| Employees | 9 |
+| Business vintage | 5 years |
+| Available liquid cash | ₹1,90,000 |
+| Purchase order value | ₹8,40,000 |
+| Customer advance | 20% |
+| Payment terms | 30 days |
+| Direct costs | ₹7,10,000 |
+| Gross contribution | ₹1,30,000 |
+| Contribution margin | 15.5% |
+
+**Note:** These profiles are illustrative demonstration data. They are not verified financial statements or actual customer records.
 
 ---
 
-## 7. Folder Structure
+## 7. Technology Stack
 
+| Layer | Technologies |
+|---|---|
+| Frontend | Next.js 14, React 18, TypeScript |
+| Styling | Tailwind CSS |
+| Animation | Framer Motion |
+| Icons | Lucide |
+| Charts | Recharts |
+| Validation | Zod |
+| Backend and Database | Supabase, PostgreSQL |
+| Authentication | Supabase Auth |
+| AI Integration | Google Gemini API with deterministic fallback |
+| Deployment | Vercel |
+| Version Control | Git and GitHub |
+
+### Technical Architecture
+
+```text
+                  DYNAFIN APPLICATION
+                         |
+             Next.js 14 + React 18
+                         |
+                Application Modules
+                         |
+          Workspace Context and State
+                         |
+              Financial Calculation
+                     Engine
+                         |
+          +--------------+--------------+
+          |                             |
+     SUPABASE                       AI LAYER
+          |                             |
+   PostgreSQL Database          Gemini API
+          |                             |
+   Row Level Security           Deterministic
+          |                     Fallback Engine
+          |
+   Authentication
+   Database Records
+   Application Data
 ```
-c:\Users\sanaa\OneDrive\Documents\Hackathon Projects\DynaFIN/
-├── public/
+
+### Backend Architecture
+
+The Supabase database schema includes 18 entities with relationships, indexes and Row Level Security policies.
+
+The migration is maintained at:
+
+`supabase/migrations/001_initial_schema.sql`
+
+The application uses Supabase client and server utilities to support database and authentication integration.
+
+---
+
+## 8. AI Financial Assistant
+
+DYNAFIN includes an AI-assisted financial decision interface designed to help MSME owners understand financial risks associated with purchase orders.
+
+The assistant supports two execution modes.
+
+### Gemini-Powered Mode
+
+When a valid `GEMINI_API_KEY` is configured, the application attempts to use the Google Gemini API to generate contextual responses.
+
+### Deterministic Fallback Mode
+
+When the Gemini key is unavailable or the API request fails, the assistant uses a deterministic financial reasoning engine.
+
+The fallback engine provides responses based on available financial context, including:
+
+- Purchase order value.
+- Direct production costs.
+- Gross contribution.
+- Available cash.
+- Working capital requirements.
+- Customer advances.
+- Debt EMI obligations.
+- Production capacity.
+
+This architecture allows the assistant to provide basic financial decision support without depending entirely on an external generative AI service.
+
+**Financial figures should be validated using the underlying calculation logic and business records. AI-generated responses are advisory, not financial guarantees.**
+
+---
+
+## 9. Visual Identity – Industrial Editorial Intelligence
+
+DYNAFIN uses an industrial editorial design language rather than a conventional generic SaaS interface.
+
+The visual direction combines the clarity of a financial publication with the precision of industrial data presentation.
+
+### Colour Palette
+
+| Colour | Hex Code | Usage |
+|---|---|---|
+| Warm Ivory | `#F3F0E7` | Primary background |
+| Deep Charcoal Green | `#14221E` | Primary dark surfaces |
+| Sage | `#879B78` | Secondary green |
+| Muted Rust | `#B66B4D` | Accent |
+| Warm Amber | `#D5A34E` | Highlights |
+
+### Typography
+
+- **Instrument Serif:** Editorial headlines.
+- **Inter:** Body text and interface elements.
+- **IBM Plex Mono:** Financial values, technical labels and numerical information.
+
+### Design Principles
+
+- Asymmetric editorial layouts.
+- Clear financial data hierarchy.
+- Industrial visual references.
+- Contextual navigation.
+- Purposeful transitions and animations.
+- Interactive financial visualisations.
+- Minimal decorative elements.
+
+---
+
+## 10. Project Structure
+
+```text
+dynafin-opportunity-iq/
+│
 ├── src/
 │   ├── app/
-│   │   ├── layout.tsx                # Root layout, metadata, Google Fonts
-│   │   ├── page.tsx                  # Cinematic editorial landing page
-│   │   ├── login/page.tsx            # MSME authentication portal
-│   │   ├── register/page.tsx         # Enterprise onboarding intake
-│   │   ├── verify-email/page.tsx     # OTP security verification interface
-│   │   ├── forgot-password/page.tsx  # Account recovery interface
-│   │   ├── onboarding/page.tsx       # 5-step business onboarding wizard
-│   │   ├── workspace/page.tsx        # Executive financial overview & switcher
+│   │   ├── api/
+│   │   │   └── assistant/
+│   │   │       └── route.ts
+│   │   │
+│   │   ├── auth/
+│   │   │   └── callback/
+│   │   │       └── page.tsx
+│   │   │
+│   │   ├── assistant/
+│   │   ├── buyers/
+│   │   ├── cash-flow/
+│   │   ├── documents/
+│   │   ├── forgot-password/
+│   │   ├── funding/
+│   │   ├── loan-comparison/
+│   │   ├── loan-readiness/
+│   │   ├── login/
+│   │   ├── onboarding/
 │   │   ├── opportunities/
-│   │   │   ├── page.tsx              # Opportunity Studio core decision workspace
-│   │   │   └── new/page.tsx          # PO intake (PDF/image OCR + manual entry)
-│   │   ├── cash-flow/page.tsx        # Interactive cash flow timeline
-│   │   ├── buyers/page.tsx           # Buyer payment behavior & invoice history
-│   │   ├── risk/page.tsx             # 5-pillar financial dependency audit
-│   │   ├── scenarios/page.tsx        # Interactive scenario laboratory
-│   │   ├── funding/page.tsx          # Indian MSME funding discovery navigator
-│   │   ├── loan-readiness/page.tsx   # Bank compliance dossier checklist
-│   │   ├── loan-comparison/page.tsx  # Side-by-side EMI & credit comparison
-│   │   ├── assistant/page.tsx        # Grounded AI financial decision assistant
-│   │   ├── reports/page.tsx          # Institutional printable executive report
-│   │   ├── documents/page.tsx        # Document room & vault repository
-│   │   └── settings/page.tsx         # Legal enterprise parameters & credentials
+│   │   ├── register/
+│   │   ├── reports/
+│   │   ├── risk/
+│   │   ├── scenarios/
+│   │   ├── settings/
+│   │   ├── verify-email/
+│   │   ├── workspace/
+│   │   ├── layout.tsx
+│   │   └── page.tsx
+│   │
 │   ├── components/
-│   │   ├── layout/AppLayout.tsx      # Standard application wrapper
-│   │   └── navigation/TopNav.tsx     # Editorial horizontal navigation & ticker
+│   │   ├── layout/
+│   │   └── navigation/
+│   │
 │   ├── data/
-│   │   ├── demo/index.ts             # 3 reconcilable Indian MSME demo datasets
-│   │   └── funding/schemes.ts        # Official Indian MSME schemes (CGTMSE, MUDRA, etc.)
+│   │   ├── demo/
+│   │   └── funding/
+│   │
 │   ├── lib/
-│   │   ├── calculations/financial.ts # Pure deterministic financial calculation engine
-│   │   ├── context/WorkspaceContext.tsx # Central workspace state manager
-│   │   └── formatting/currency.ts    # Indian Rupee (INR) and date formatters
-│   ├── styles/globals.css            # Tailored editorial styles & print directives
-│   └── types/index.ts                # Strict TypeScript domain interfaces
+│   │   ├── calculations/
+│   │   ├── context/
+│   │   ├── formatting/
+│   │   └── supabase/
+│   │
+│   ├── styles/
+│   └── types/
+│
 ├── supabase/
 │   └── migrations/
-│       └── 001_initial_schema.sql    # 18 Supabase tables, RLS policies, indexes
+│       └── 001_initial_schema.sql
+│
 ├── .env.example
 ├── .gitignore
-├── next.config.mjs
+├── DEVELOPMENT_STATUS.md
+├── PROJECT_CONTEXT.md
+├── README.md
 ├── package.json
+├── package-lock.json
+├── next.config.mjs
 ├── postcss.config.js
 ├── tailwind.config.ts
-├── tsconfig.json
-├── PROJECT_CONTEXT.md
-└── README.md
+└── tsconfig.json
 ```
 
 ---
 
-## 8. Installation & Local Development
+## 11. Installation and Local Development
 
 ### Prerequisites
-- **Node.js:** v18.17+ or v20+ (tested on Node v26)
-- **Package Manager:** `npm` (v10+)
 
-### Setup Commands
+- Node.js 18.17 or later.
+- npm 10 or later.
+- A Supabase project for live backend connectivity.
+
+### Clone the Repository
+
 ```bash
-# 1. Clone repository or navigate to directory
-cd "c:\Users\sanaa\OneDrive\Documents\Hackathon Projects\DynaFIN"
+git clone https://github.com/sanaakbarali/dynafin-opportunity-iq.git
+```
 
-# 2. Install dependencies
+### Navigate to the Project
+
+```bash
+cd dynafin-opportunity-iq
+```
+
+### Install Dependencies
+
+```bash
 npm install
+```
 
-# 3. Configure environment variables
-cp .env.example .env.local
+### Configure Environment Variables
 
-# 4. Start local development server
+Create a `.env.local` file in the project root.
+
+Add the following:
+
+```env
+NEXT_PUBLIC_APP_NAME="DYNAFIN"
+NEXT_PUBLIC_APP_URL="http://localhost:3000"
+
+NEXT_PUBLIC_SUPABASE_URL="https://your-project-id.supabase.co"
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY="your-publishable-key"
+
+GEMINI_API_KEY=""
+```
+
+The Gemini API key is optional because the assistant includes a deterministic fallback.
+
+Never commit `.env.local` or expose private credentials in the repository.
+
+### Configure Supabase Database
+
+1. Create a project in Supabase.
+2. Open the SQL Editor.
+3. Execute the migration file:
+
+   `supabase/migrations/001_initial_schema.sql`
+
+4. Configure authentication redirect URLs for local development.
+5. Verify the database tables and access policies.
+
+### Start Development Server
+
+```bash
 npm run dev
 ```
 
-Open `http://localhost:3000` in your browser.
+Open:
+
+`http://localhost:3000`
 
 ### Production Build
-```bash
-# Build optimized production bundle
-npm run build
 
-# Start production server
+```bash
+npm run build
+```
+
+### Start Production Server Locally
+
+```bash
 npm run start
 ```
 
 ---
 
-## 9. Supabase Stage 2 Connectivity
+## 12. Supabase Configuration
 
-To connect live Supabase services:
-1. Create a project at [supabase.com](https://supabase.com).
-2. Run `supabase/migrations/001_initial_schema.sql` in the **Supabase SQL Editor**.
-3. Create two private storage buckets in the Supabase Dashboard: `documents` and `reports`.
-4. Add your project credentials to `.env.local`:
-   ```bash
-   NEXT_PUBLIC_SUPABASE_URL="https://your-project.supabase.co"
-   NEXT_PUBLIC_SUPABASE_ANON_KEY="your-anon-key"
-   SUPABASE_SERVICE_ROLE_KEY="your-service-role-key"
-   ```
+DYNAFIN uses Supabase as its backend platform.
+
+### Database
+
+The PostgreSQL schema contains 18 entities covering the application's business and financial data requirements.
+
+### Security
+
+Row Level Security policies are included in the database migration to support tenant-level data isolation.
+
+### Authentication
+
+Supabase Authentication is integrated into the application's registration, login and email confirmation workflow.
+
+### Environment Variables
+
+The application supports the following Supabase configuration:
+
+| Variable | Purpose |
+|---|---|
+| `NEXT_PUBLIC_SUPABASE_URL` | Supabase project URL |
+| `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` | Supabase publishable key |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Alternative key name supported by the client configuration |
+| `SUPABASE_SERVICE_ROLE_KEY` | Server-side administrative key, only where required |
+
+Never expose the service-role key in client-side code or commit it to GitHub.
 
 ---
 
-## 10. Security & Ethical Boundaries
+## 13. Production Deployment
 
-- **No Public Data Exposure:** Strict PostgreSQL Row Level Security (RLS) ensures MSMEs only ever access their own financial records.
-- **No Fabricated Credit Bureau Records:** The platform does not claim to know a buyer's external credit score from their name alone. Predictions are strictly grounded in empirical invoices uploaded by the user.
-- **Never Automatically Reject or Accept:** DYNAFIN is an intelligence and decision-support workspace, leaving final commercial decisions to the business owner.
-- **Responsible Financial Disclaimer:** DYNAFIN is not a scheduled commercial bank, registered NBFC, credit rating agency, or licensed investment adviser.
+DYNAFIN is deployed using **Vercel**, with its source code maintained in GitHub.
+
+### Deployment Workflow
+
+```text
+Local Development
+       |
+       v
+    Git Commit
+       |
+       v
+   GitHub Repository
+       |
+       v
+  Vercel Deployment
+       |
+       v
+ Production Application
+       |
+       v
+ Supabase Backend
+```
+
+### Deployment Configuration
+
+1. Push the project to GitHub.
+2. Import the repository into Vercel.
+3. Configure the required environment variables.
+4. Deploy using the Next.js framework configuration.
+5. Configure the production URL in Supabase Authentication redirect settings.
+
+Live application:
+
+**[Open DYNAFIN – Opportunity IQ](https://dynafin-opportunity-iq.vercel.app/)**
 
 ---
 
-## 11. Project Contributors
+## 14. Security and Responsible Use
 
-* **Lead Fintech Architect & Full-Stack Engineer:** `[CONTRIBUTOR_NAME_PLACEHOLDER]`
-* **Product Designer & Financial Systems Developer:** `[CONTRIBUTOR_NAME_PLACEHOLDER]`
-* **Event:** ARTHATON 2026
+DYNAFIN is designed to support responsible financial decision-making.
+
+### Data Protection
+
+- PostgreSQL Row Level Security policies are included in the database migration.
+- Application credentials are configured through environment variables.
+- Private administrative credentials must remain server-side.
+- Business financial information should only be accessed by authorised users.
+
+### Responsible Financial Decision Support
+
+- DYNAFIN does not claim to access external buyer credit bureau records.
+- Buyer payment analysis should be based on available historical invoice data.
+- Demo data is illustrative and must not be interpreted as verified financial information.
+- AI-generated responses should not replace independent financial verification.
+- Funding information should be verified with the relevant institution or official government source.
+- DYNAFIN does not automatically approve or reject commercial opportunities.
+- The final decision remains with the business owner.
+
+DYNAFIN is not a scheduled commercial bank, registered NBFC, credit rating agency or licensed investment adviser.
+
+---
+
+## 15. Current Scope and Limitations
+
+DYNAFIN is developed as a hackathon prototype demonstrating pre-order financial decision intelligence for Indian MSMEs.
+
+The application includes financial assessment interfaces, illustrative business profiles, a deterministic calculation layer, an AI assistant with fallback reasoning, and Supabase integration.
+
+Certain capabilities require further end-to-end validation and production hardening, including:
+
+- Automated extraction and validation of purchase-order documents.
+- Complete persistence of every business module in Supabase.
+- Historical invoice ingestion and buyer payment analytics.
+- Secure document upload, storage and retrieval workflows.
+- Comprehensive multi-user and tenant-isolation testing.
+- Independent validation of financial projections against real business records.
+- Production monitoring and error handling.
+
+The accuracy of financial insights depends on the quality, completeness and correctness of the information supplied by the business.
+
+---
+
+## 16. Future Enhancements
+
+Potential areas for further development include:
+
+- Advanced purchase-order OCR and structured data extraction.
+- Integration with accounting and ERP platforms.
+- Improved cash-flow forecasting using historical transactions.
+- More detailed production scheduling and capacity planning.
+- Verified financing and government scheme information integrations.
+- Advanced buyer payment behaviour analytics.
+- Automated financial report generation.
+- Expanded security, audit logging and monitoring.
+
+---
+
+## 17. Project Contributors
+
+**Event:** ARTHATON 2026
+
+**Team Members:**
+
+- Sana Akbar Ali
+- Kalanithi A
+- Askandar Sherif A
+
+---
+
+## 18. Acknowledgement
+
+DYNAFIN – Opportunity IQ was developed as a solution to the financial visibility challenges faced by Indian MSMEs.
+
+The project aims to help business owners evaluate opportunities with a clearer understanding of profitability, liquidity, operational constraints and financial risk.
+
+**A profitable order should not become a financial crisis.**
 
 ---
 
